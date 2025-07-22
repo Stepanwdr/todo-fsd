@@ -22,9 +22,9 @@ export const useUpdateTaskMutation = () => {
   return useMutation({
     mutationFn: taskApi.updateTask,
     onSuccess: ({completed}) => {
-      const tab = completed ? 'Выполненные' : 'Активные'
+      const tab = completed ? 'Выполненный' : 'Активный'
       qc.invalidateQueries({queryKey: ["tasks"]})
-      toast.success(`Задача перенесен в ${tab}`);
+      toast.success(`Статус задачи обновлён на "${tab}"`);
     },
   });
 };
