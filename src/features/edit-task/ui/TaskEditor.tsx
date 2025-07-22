@@ -2,7 +2,7 @@ import  { FC, useState } from "react";
 import { TextField, IconButton, Stack } from "@mui/material";
 import { Save, Cancel } from "@mui/icons-material";
 import { Task } from "shared/types/task";
-import { useUpdateTaskMutation } from "widgets/task-list";
+import { useUpdateTaskMutation } from "entities/task";
 
 interface Props {
   task: Task;
@@ -28,10 +28,10 @@ export const TaskEditor: FC<Props> = ({ task, onClose }) => {
         autoFocus
         onKeyDown={(e) => e.key === "Enter" && save()}
       />
-      <IconButton onClick={save} color="success">
+      <IconButton onClick={save} color="success" disabled={!text.trim() || isPending}>
         <Save />
       </IconButton>
-      <IconButton onClick={onClose}>
+      <IconButton onClick={onClose} disabled={isPending}>
         <Cancel />
       </IconButton>
     </Stack>

@@ -14,7 +14,6 @@ const App = () => (
   <QueryClientProvider client={queryClient}>
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <HomePage />
       <ToastContainer
         position="top-right"
         autoClose={3000}
@@ -22,6 +21,7 @@ const App = () => (
         closeOnClick
         pauseOnHover
       />
+      <HomePage />
     </ThemeProvider>
   </QueryClientProvider>
 );
