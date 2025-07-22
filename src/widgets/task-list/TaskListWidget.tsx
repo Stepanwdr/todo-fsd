@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { CircularProgress, Typography } from "@mui/material";
+import {Box, CircularProgress, Typography } from "@mui/material";
 import { motion, AnimatePresence } from "framer-motion";
 import type { TaskFilter } from "shared/types/task";
 import { TaskItem } from "entities/task";
@@ -12,7 +12,7 @@ interface Props {
 export const TaskListWidget: FC<Props> = ({ filter }) => {
   const { data, isLoading, error } = useTasksQuery();
 
-  if (isLoading) return <CircularProgress />;
+  if (isLoading) return <Box justifyContent={"center"}><CircularProgress /></Box>;
   if (error) return <Typography color="error">Ошибка загрузки</Typography>;
 
   const filtered =

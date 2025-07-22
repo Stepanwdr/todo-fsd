@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import {FC, useState} from "react";
 import { TextField, Button, Stack } from "@mui/material";
 
 import { useAddTask } from "features/add-task";
 
-export const AddTaskWidget: React.FC = () => {
+export const AddTaskWidget: FC = () => {
   const [text, setText] = useState("");
   const { mutate, isPending } = useAddTask({ cb:() => setText('')})
 

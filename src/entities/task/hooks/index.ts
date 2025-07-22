@@ -13,9 +13,6 @@ export const useDeleteTaskMutation = () => {
     onSuccess: () => {
       qc.invalidateQueries({queryKey: ["tasks"]})
       toast.success('Задача успешно удалено!');
-    },
-    onError:()=>{
-      toast('Ошибка при удаление')
     }
   });
 };
