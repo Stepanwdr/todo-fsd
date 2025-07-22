@@ -3,7 +3,6 @@ import '../app/styles/index.css'
 import { QueryClientProvider } from '@tanstack/react-query';
 import { CssBaseline, ThemeProvider, createTheme } from '@mui/material';
 import { queryClient } from 'shared/config';
-import { withToast } from "./providers";
 import { ToastContainer } from "react-toastify";
 
 const HomePage = lazy(() => import('pages/Home'))
@@ -27,4 +26,4 @@ const App = () => (
   </QueryClientProvider>
 );
 
-export default withToast(App)
+export default App
