@@ -1,7 +1,7 @@
 # Проект ToDo 🚀
 # React + TypeScript + Vite (FSD)
 
-> Minimal Vite template with **React 19**, **TypeScript**, **MUI**, **TanStack Query**, and **Feature-Sliced Design** folder structure.
+> Минимальный шаблон Vite проекта **React 19**, **TypeScript**, **MUI**, **TanStack Query**, and **Feature-Sliced Design** Структура папок.
 
 ## 🚀 Быстрый запуск
 ```bash
