@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import type { TaskFilter } from "shared/types/task";
 import { TaskItem } from "entities/task";
 import { useTasksQuery } from "entities/task/hooks";
+import styled from "@emotion/styled";
 
 interface Props {
   filter: TaskFilter;
@@ -12,7 +13,7 @@ interface Props {
 export const TaskListWidget: FC<Props> = ({ filter }) => {
   const { data, isLoading, error } = useTasksQuery();
 
-  if (isLoading) return <Box justifyContent={"center"}><CircularProgress /></Box>;
+  if (isLoading) return <StyledBox><CircularProgress /></StyledBox>;
   if (error) return <Typography color="error">Ошибка загрузки</Typography>;
 
   const filtered =
@@ -59,3 +60,11 @@ export const TaskListWidget: FC<Props> = ({ filter }) => {
     </motion.div>
   );
 };
+
+const StyledBox = styled(Box)`
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  width: 100%;
+  margin-top: 20px;
+`
