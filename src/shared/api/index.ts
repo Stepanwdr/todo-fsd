@@ -1,7 +1,21 @@
 import { delay } from "../lib";
 import type { Task } from "../types";
 
+// В реальном проекте тут можно реализовать типо baseApi использованием --Axios-инстанс--
+// const axiosApi = axios.create({
+//   baseURL: import.meta.env.VITE_API_URL ?? 'http://localhost:3001',
+//   timeout: 10000,
+// });
+//
+// // добавляем токен (пример)
+// axiosApi.interceptors.request.use((config) => {
+//   const token = localStorage.getItem('token');
+//   if (token) config.headers.Authorization = `Bearer ${token}`;
+//   return config;
+// });
 
+
+// --- localStorage-реализация (для demo) ---
 export const taskApi = {
   getTasks: async (): Promise<Task[]> => {
     await delay(700);
