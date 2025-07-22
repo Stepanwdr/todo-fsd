@@ -18,7 +18,7 @@ const Home: FC = () => {
         <ToggleButtonGroup
           exclusive
           value={filter}
-          onChange={(_, v) => v && setFilter(v)}
+          onChange={(_, value) => value && setFilter(value)}
           sx={{ mb: 2 }}
         >
           <ToggleButton value="all">Все</ToggleButton>

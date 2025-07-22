@@ -39,8 +39,8 @@ export const TaskListWidget: FC<Props> = ({ filter }) => {
             layout
             initial={{ opacity: 0, y: -20, height: 0 }}
             animate={{ opacity: 1, y: 0, height: "auto" }}
-            exit={{ opacity: 0, x: -40, height: 0, transition: { duration: 0.1 } }}
-            transition={{ duration: 0.1, ease: "easeInOut" }}
+            exit={{ opacity: 0, x: -40, height: 0, transition: { duration: 0.25 } }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
           >
             <TaskItem task={task} />
           </motion.div>
@@ -50,8 +50,8 @@ export const TaskListWidget: FC<Props> = ({ filter }) => {
           layout
           initial={{opacity: 0, y: -20, height: 0}}
           animate={{opacity: 1, y: 0, height: "auto"}}
-          exit={{opacity: 0, x: -40, height: 0, transition: {duration: 0.1}}}
-          transition={{duration: 0.1, ease: "easeInOut"}}
+          exit={{opacity: 0, x: -40, height: 0, transition: {duration: 0.25}}}
+          transition={{duration: 0.3, ease: "easeInOut"}}
         >
         Список пуст
         </motion.div>}
