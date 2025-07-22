@@ -1,5 +1,5 @@
-import { delay } from "shared/lib";
-import type { Task } from "shared/types/task";
+import { delay } from "../lib";
+import type { Task } from "../types";
 
 
 export const taskApi = {

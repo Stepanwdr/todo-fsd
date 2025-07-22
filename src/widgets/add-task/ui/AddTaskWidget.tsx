@@ -10,7 +10,7 @@ export const AddTaskWidget: FC = () => {
   const handleAdd = () => {
     if (!text.trim()) return;
     mutate(text);
-  };
+  } ;
 
   return (
     <Stack direction="row" gap={1} mb={2}>

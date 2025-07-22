@@ -3,7 +3,7 @@ import { ListItem, ListItemText } from "@mui/material";
 
 import { Task } from "shared/types/task";
 import { ToggleTaskCheckbox } from "features/toggle-task";
-import {EditButton, TaskEditor } from "features/edit-task";
+import { EditButton, TaskEditor } from "features/edit-task";
 import { RemoveTaskButton } from "features/remove-task/ui/RemoveTaskButton";
 
 interface Props {
