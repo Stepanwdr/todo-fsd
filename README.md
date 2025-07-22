@@ -1,69 +1,45 @@
-# React + TypeScript + Vite
+# Проект ToDo 🚀
+# React + TypeScript + Vite (FSD)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> Minimal Vite template with **React 19**, **TypeScript**, **MUI**, **TanStack Query**, and **Feature-Sliced Design** folder structure.
 
-Currently, two official plugins are available:
+## 🚀 Быстрый запуск
+```bash
+git clone <https://github.com/Stepanwdr/todo-fsd.git>
+cd react-todo-fsd
+npm i
+npm run dev          # http://localhost:5173
+ 
+ ## Архитектура Feature Sliced Design:
+ ### 📁 **Shared** — переиспользуемый код, не имеющий отношения к специфике приложения/бизнеса (например, ui/kit, libs, API)
+ #### на этом уровне сегметы могут ссылаться друг на друга
+ ### 📁 **Entities** (сущности) — описание бизнес-сущностей (task/api, task/hooks, ui/TaskItem) 
+ #### на этом уровне слайсы НЕ могут ссылаться друг на друга, допустим импорт только из уровня shared 
+- описание интерфейсов запросов\ответов и UI модулей,
+- описание API сущности (query-function)
+- хуки поверх API
+- инициализация глобального стейта (при необходимости).
+- Ui-компоненты, которые могут принимать пропсы, иметь в себе стейт не создающий сайд-эффекты
+### 📁 **Features** (фичи) — взаимодействие с бизнес-сущностями 
+#### на этом уровне слайсы НЕ могут ссылаться друг на друга, допустим импорт из уровней Shared, Entities
+- Использование UI компонентов, которые могут импортировать хуки(запросы), интерфейсы(типы) с нижележащих уровней
+- инициализация глобальноо\локального стейта (при необходимости).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+### 📁 **Widgets** (виджеты) — максимально самостоятельные компонеты, объединяющие Shared, Entities и Features 
+#### на этом уровне слайсы НЕ могут ссылаться друг на друга, допустим импорт из уровней Shared, Entities, Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- сомостоятельные UI компоненты, которые могут импортировать хуки(запросы), интерфейсы(типы) с нижележащих уровней
+- инициализация глобальноо\локального стейта (при необходимости).
+- объеденение нижележащих слоёв в самостоятельные компоненты, которые встраиваются в Curtains или Pages
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+### 📁 **Pages** (страницы) — композиционный слой для сборки полноценных страниц из сущностей, фич и виджетов.
+#### на этом уровне слайсы НЕ могут ссылаться друг на друга, допустим импорт из уровней Shared, Entities, Features, Widgets
+- страницы, которые объеденяет роутер
+- подгружаются динманически (chunks)
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### 📁 **app** — настройки, провайдеры для всего приложения.
+#### на этом уровне проиходит инициализация страниц (Router), Глобальные провайдеры
+- объявляются глобальные CSS-переменные
+- натсраиваются глобальные провайдеры 
