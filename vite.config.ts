@@ -17,16 +17,5 @@ export default defineConfig({
       'shared': '/src/shared'
     }
   },
-  build: {
-    outDir: 'dist',
-    emptyOutDir: true,
-    rollupOptions: {
-      input: 'types.html',
-      output: {
-        dir: 'dist',
-        format: 'es'
-      }
-    }
-  }
 })
 
