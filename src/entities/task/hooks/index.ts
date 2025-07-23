@@ -10,8 +10,8 @@ export const useDeleteTaskMutation = () => {
   const qc = useQueryClient();
   return useMutation({
     mutationFn: taskApi.deleteTask,
-    onSuccess: () => {
-      qc.invalidateQueries({queryKey: ["tasks"]})
+    onSuccess:async () => {
+     await qc.invalidateQueries({queryKey: ["tasks"]})
       toast.success('Задача успешно удалено!');
     }
   });
@@ -21,9 +21,9 @@ export const useUpdateTaskMutation = () => {
   const qc = useQueryClient();
   return useMutation({
     mutationFn: taskApi.updateTask,
-    onSuccess: ({completed}) => {
+    onSuccess: async ({completed}) => {
       const tab = completed ? 'Выполненный' : 'Активный'
-      qc.invalidateQueries({queryKey: ["tasks"]})
+      await qc.invalidateQueries({queryKey: ["tasks"]})
       toast.success(`Статус задачи обновлён на "${tab}"`);
     },
   });

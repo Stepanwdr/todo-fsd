@@ -1,1 +1,1 @@
-export * from "./task"
+export type * from "./task"

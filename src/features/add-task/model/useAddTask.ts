@@ -10,8 +10,8 @@ export const useAddTask = (options:HookOptions) => {
   const qc = useQueryClient();
   return useMutation({
     mutationFn: (text: string) => taskApi.createTask(text),
-    onSuccess: () => {
-      qc.invalidateQueries({ queryKey: ['tasks'] });
+    onSuccess: async () => {
+      await qc.invalidateQueries({ queryKey: ['tasks'] });
       toast.success('Задача добавлена!');
       options.cb()
     },
