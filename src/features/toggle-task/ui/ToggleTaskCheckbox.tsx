@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { Checkbox } from "@mui/material";
-import type { Task } from "shared/types/task";
+import type { Task } from "shared/types";
 import { useUpdateTaskMutation } from "entities/task/hooks";
 
 interface Props {

@@ -1,7 +1,7 @@
 import  { FC, useState } from "react";
 import { TextField, IconButton, Stack } from "@mui/material";
 import { Save, Cancel } from "@mui/icons-material";
-import { Task } from "shared/types/task";
+import type { Task } from "shared/types";
 import { useUpdateTaskMutation } from "entities/task";
 
 interface Props {
