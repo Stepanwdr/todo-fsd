@@ -5,7 +5,7 @@
 
 ## 🚀 Быстрый запуск
 ```bash
-git clone <https://github.com/Stepanwdr/todo-fsd.git>
+git clone <>
 cd react-todo-fsd
 npm i
 npm run dev          # http://localhost:5173
